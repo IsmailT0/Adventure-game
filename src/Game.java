@@ -7,7 +7,7 @@ public class Game {
 
     //Defines the game to the player and asks the player his warrior choose
     public void start(){
-
+        login();
         while (player.getHealth()>0){ //while player alive
             int locChoice= mainMenu(); // lists the places the player can go
 
@@ -29,7 +29,7 @@ public class Game {
 //                case 5 -> location = new Market(player);
 //                default -> location = new SafeHouse(player);
             }
-            
+
             if (!location.getLocation()){//all get location methods will return true
                 System.out.println("Game over.");
                 break;
@@ -41,8 +41,7 @@ public class Game {
     private void login(){
         System.out.println("---Welcome to Adventure Game---");
         System.out.print("Please enter your name warrior: ");
-        String playerName=sc.next();
-        player = new Player(playerName);
+        player = new Player(sc.next(),sc);
         player.selectCha();
     }
 
