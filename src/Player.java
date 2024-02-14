@@ -100,6 +100,10 @@ public class Player {
         this.name = name;
     }
 
+    public Inventory getInventory(){
+        return this.inventory;
+    }
+
     @Override
     public String toString(){
         return getName()+ " "+getDamage()+" "+getHealth()+" "+getMoney();

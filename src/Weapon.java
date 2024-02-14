@@ -1,11 +1,12 @@
 public class Weapon {
     private String name;
-    private int damage,battleCount;
+    private int damage,battleCount,cost;
 
-    public Weapon(String name, int damage) {
+    public Weapon(String name, int damage,int cost) {
         this.name = name;
         this.damage = damage;
         this.battleCount = 0;
+        this.cost= cost;
     }
     public String getName() {
         return name;
@@ -21,5 +22,9 @@ public class Weapon {
 
     public void increaseBattleCount(){
         this.battleCount+=1;
+    }
+
+    public int getCost() {
+        return cost;
     }
 }

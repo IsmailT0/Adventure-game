@@ -1,8 +1,8 @@
 public class Armor {
     private String name;
-    private int protection,battleCount;
+    private int protection,battleCount,cost;
 
-    public Armor(String name, int protection) {
+    public Armor(String name, int protection,int cost) {
         this.name = name;
         this.protection = protection;
         this.battleCount = 0;
@@ -22,5 +22,9 @@ public class Armor {
 
     public void increaseBattleCount(){
         this.battleCount+=1;
+    }
+
+    public int getCost() {
+        return cost;
     }
 }

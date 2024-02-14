@@ -20,14 +20,14 @@ public class Game {
             switch (locChoice) {
                 // according to the choice of the player we will initialize a new location where
                 // player can fight, rest and heal or makes some shopping
-//
-//
-//                case 1 -> location = new SafeHouse(player);
-//                case 2 -> location = new Cave(player);
-//                case 3 -> location = new Forest(player);
-//                case 4 -> location = new River(player);
-//                case 5 -> location = new Market(player);
-//                default -> location = new SafeHouse(player);
+
+
+                case 1 -> location = new SafeHouse(player);
+                case 2 -> location = new Cave(player);
+                case 3 -> location = new Forest(player);
+                case 4 -> location = new River(player);
+                case 5 -> location = new Market(player);
+                default -> location = new SafeHouse(player);
             }
 
             if (!location.getLocation()){//all get location methods will return true

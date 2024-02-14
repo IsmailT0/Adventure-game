@@ -6,8 +6,8 @@ public class Inventory {
 
 
     public Inventory(){
-        this.armor= new Armor("none",0);
-        this.weapon = new Weapon("stick",0);
+        this.armor= new Armor("none",0,0);
+        this.weapon = new Weapon("stick",0,0);
         this.water =false;
         this.food =false;
         this.firewood =false;
