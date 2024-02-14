@@ -122,13 +122,15 @@ class Market extends NormalLoc {
 
 //these helper methods helps to create arraylists of armors and weapons
     private void setArmors(){
-        armors.add(new Armor("Light",1,15));
-        armors.add(new Armor("Middle",3,25));
-        armors.add(new Armor("Heavy",5,40));
+        this.armors= new ArrayList<>();
+        this.armors.add(new Armor("Light",1,15));
+        this.armors.add(new Armor("Middle",3,25));
+        this.armors.add(new Armor("Heavy",5,40));
     }
     private void setWeapons(){
-        weapons.add(new Weapon("Pistol", 2,25));
-        weapons.add(new Weapon("Sword",3,35));
-        weapons.add(new Weapon("Riffle",7,45));
+        this.weapons= new ArrayList<>();
+        this.weapons.add(new Weapon("Pistol", 2,25));
+        this.weapons.add(new Weapon("Sword",3,35));
+        this.weapons.add(new Weapon("Riffle",7,45));
     }
 }

@@ -32,6 +32,10 @@ public abstract class Monster {
     }
 
     public int getMaxNumber() {
+        return maxNumber;
+    }
+
+    public int getCount(){
         return (int)(Math.random()*maxNumber)+1;
     }
 }
