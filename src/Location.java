@@ -9,10 +9,6 @@ public abstract class Location {
         sc = new Scanner(System.in);
     }
 
-    public Player getPlayer() {
-        return player;
-    }
-
     public String getName() {
         return name;
     }

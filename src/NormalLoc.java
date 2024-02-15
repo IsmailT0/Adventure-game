@@ -42,44 +42,49 @@ class Market extends NormalLoc {
 
     @Override
     public boolean getLocation() {
-        int choice = Menu();
-        switch (choice){
-            case 1 ->{
-                sellWeapon();
-            }
-            case 2 ->{
-                sellArmor();
-            }
-        }
+        Menu();
         return true;
     }
 
     private int Menu(){ //displays the main menu where player selects what to buy
         System.out.println("Welcome to Market " + player.getName());
-        System.out.println("Money you have: " +player.getMoney());
+        System.out.println("Money you have: " + player.getMoney());
         System.out.println("What would you like to buy? ");
-        System.out.println("1- Weapons\n2-Armors\n0- To exit");
-        int choice = sc.nextInt();
-        while (choice<0 || choice>3){
-            System.out.println("You enter a wrong decision. Be careful 0, 1 or 2");
-            System.out.print("Your answer: ");
-            choice= sc.nextInt();
-        }
+        int choice;
+        do{
+            System.out.println("1- Weapons\n2-Armors\n0- To exit");
+            choice = sc.nextInt();
+            while (choice<0 || choice>3){
+                System.out.println("You enter a wrong decision. Be careful 0, 1 or 2");
+                System.out.print("Your answer: ");
+                choice= sc.nextInt();
+            }
+            switch (choice) {
+                case 1 -> {
+                    choice = sellWeapon();
+                }
+                case 2 -> {
+                    choice = sellArmor();
+                }case 0 -> {
+                    break;
+                }
+            }
+        }while(choice > 0 && choice<3);
         return choice;
     }
 
-    private void sellArmor(){//deals with the sell of the armor
+    private int sellArmor(){//deals with the sell of the armor
         System.out.println("Choose your Armor:");
         System.out.println("ID      NAME    Protection   MONEY");
         System.out.println("1-     Light        1          15 ");
         System.out.println("2-     Middle       3          25 ");
         System.out.println("3-     Heavy        5          40 ");
-        System.out.println("Please enter 0 to leave.");
+        System.out.println("Please enter 0 to return.");
 
         System.out.print("Enter armor id: ");
         int armorId= sc.nextInt();
         if (armorId == 0)
-            return;
+            return 2;
         while (armorId<0 || armorId>3){
             System.out.print("Please enter a valid armor id: ");
             armorId = sc.nextInt();
@@ -94,16 +99,20 @@ class Market extends NormalLoc {
             player.setMoney(player.getMoney()-armor.getCost());
             player.getInventory().setArmor(armor);
         }
+        return 3;
     }
-    private void sellWeapon(){//deals with the sell of the weapons
+    private int sellWeapon(){//deals with the sell of the weapons
         System.out.println("Choose your Weapon:");
         System.out.println("ID      NAME    Damage   MONEY");
         System.out.println("1-    Pistol     2       25 ");
         System.out.println("2-    Sword      3       35 ");
         System.out.println("3-    Riffle     7       45 ");
+        System.out.println("Please enter 0 to return.");
 
         System.out.print("Enter armor id: ");
         int weaponId= sc.nextInt();
+        if (weaponId==0)
+            return 1;
         while (weaponId<0 || weaponId>3){
             System.out.print("Please enter a valid weapon id: ");
             weaponId = sc.nextInt();
@@ -113,11 +122,12 @@ class Market extends NormalLoc {
 
         if (player.getMoney() < weapon.getCost()){
             System.out.println("Your money is not enough please try again");
-            setWeapons();
+            sellWeapon();
         }else{
             player.setMoney(player.getMoney()-weapon.getCost());
             player.getInventory().setWeapon(weapon);
         }
+        return 3;
     }
 
 //these helper methods helps to create arraylists of armors and weapons

@@ -52,7 +52,7 @@ public class Player {
 
     //helper method for selectCha
     private void initPlayer(String name, int damage, int health, int money){
-        setName(name + this.name);
+        setName(name+ " " + this.name);
         setDamage(damage);
         setHealth(health);
         setMoney(money);
